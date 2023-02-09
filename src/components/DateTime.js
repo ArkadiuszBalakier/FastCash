@@ -4,7 +4,7 @@ function DateTime(){
 
     return (
         <div>
-            <p>{date}</p>
+            {date}
         </div>
     )
 }

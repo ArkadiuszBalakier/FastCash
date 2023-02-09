@@ -1,0 +1,45 @@
+[
+
+    {
+        "id":201,
+        "accountNumber": "7654321",
+        "firstName": "Arek",
+        "lastName": "Bee",
+        "balance": 10000,
+        "transactions":[
+            {
+                "id": "1a",
+                "ammount": 1020,
+                "transactionDate": "12/2/2023",
+                "type": "deposit"
+            },
+            {
+                "id": "2a",
+                "ammount": 1200,
+                "transactionDate": "11/2/2023",
+                "type": "withdraw"
+            }
+        ]
+    },
+    {
+        "id":202,
+        "accountNumber": "1234567",
+        "firstName": "Martna",
+        "lastName": "Bee",
+        "balance": 10000,
+        "transactions":[
+            {
+                "id":"1",
+                "ammount": 1010,
+                "transactionDate": "16/2/2023",
+                "type": "deposit"
+            },
+            {
+                "id":"2",
+                "ammount": 1100,
+                "transactionDate": "14/2/2023",
+                "type": "withdraw"
+            }
+        ]
+    }
+]
