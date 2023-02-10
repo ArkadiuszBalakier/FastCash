@@ -14,6 +14,8 @@ import Paper from '@mui/material/Paper';
 
 
 function Transactions () {
+
+//transactions block
 const [accounts,setAccounts]= useState([])
 const [selectedAccount,setSelectedAccount]= useState('')
 
@@ -35,6 +37,12 @@ function handleChange(event){
 useEffect(()=>{
     getAccounts();
 },[])
+//end transactions block
+
+function getBalance(accountId){
+  const account = accounts.find(account=> account.id === accountId)
+  return account.balance
+}
 
     return(
         <>
@@ -72,13 +80,17 @@ useEffect(()=>{
               </TableCell>
               <TableCell align="right">{transaction.ammount}</TableCell>
               <TableCell align="right">{transaction.transactionDate}</TableCell>
+              <TableCell align="center"></TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell rowSpan={2}></TableCell>
+            <TableCell rowSpan={3} align="right">Balance :</TableCell>
+            <TableCell align='right'>{getBalance(selectedAccount)}</TableCell>
+          </TableRow>
         </TableBody>}
       </Table>
     </TableContainer>
-
-      
         </>
     )
 }
