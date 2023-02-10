@@ -36,11 +36,11 @@ const Loan = ()=>{
       return account.balance
     }
 
-  async function AddAmountToBalance(amount){
-      const newBalance = accounts.balance + amount
-      await axios.put('http://localhost:3000/accounts.json+id:201',{ 
-         balance: newBalance })
-    console.log(newBalance)
+  async function AddAmountToBalance(amount , accountId){
+      const account = accounts.find(account=>account.id === accountId)
+      const newBalance = account.balance + amount;
+      console.log(newBalance)
+      await axios.put('http://localhost:3000/accounts.json',{ newBalance })
     }
 
     function amountChangeHandler(event){
@@ -73,7 +73,7 @@ const Loan = ()=>{
       <Stack spacing={4} direction="row">
          <TextField id="Amount" label="Ammount" type="number" variant="outlined" onChange={amountChangeHandler}/>
          <Button variant="contained" onClick={()=>{
-           AddAmountToBalance(enteredAmount)}}>LOAN</Button>
+           AddAmountToBalance(enteredAmount,selectedAccount)}}>LOAN</Button>
       </Stack>
            </div>
       
