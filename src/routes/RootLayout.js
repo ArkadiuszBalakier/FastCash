@@ -11,7 +11,7 @@ function RootLayout(){
      <>
     <CssBaseline />      
     <Header/>
-        <Container maxWidth="lg">
+        <Container fixed>
         <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} >
             <Outlet/>   
         </Box>

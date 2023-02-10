@@ -13,11 +13,13 @@ import TextField from '@mui/material/TextField';
 const Loan = ()=>{
     const [accounts,setAccounts]=useState([]);
     const [selectedAccount, setSelectedAccount]=useState('');
+    const [enteredAmount, setEnteredAmount]=useState('');
 
     async function getAccounts(){
         const response= await axios.get('http://localhost:3000/accounts.json')
         const data=response.data;
          setAccounts(data)
+         console.log(accounts)
     }
 
     function handleChange(event){
@@ -25,8 +27,8 @@ const Loan = ()=>{
     }
     
 
-    useEffect(()=>{
-        getAccounts();
+    useEffect(()=>{     
+         getAccounts();        
     },[])
 
     function getBalance(accountId){
@@ -34,6 +36,16 @@ const Loan = ()=>{
       return account.balance
     }
 
+  async function AddAmountToBalance(amount){
+      const newBalance = accounts.balance + amount
+      await axios.put('http://localhost:3000/accounts.json+id:201',{ 
+         balance: newBalance })
+    console.log(newBalance)
+    }
+
+    function amountChangeHandler(event){
+      setEnteredAmount(event.target.value)
+    }
 
     return(
       <>
@@ -52,16 +64,20 @@ const Loan = ()=>{
         </Select>
       </FormControl>
 
+{selectedAccount && <div>
       <Stack spacing={2} direction="row" className='mb-5'>
         <div>Current Balance:</div>
         { selectedAccount && <div>{getBalance(selectedAccount)}</div>}
       </Stack>
 
       <Stack spacing={4} direction="row">
-         <TextField id="outlined-basic" label="Ammount" type="number" variant="outlined" />
-         <Button variant="contained">LOAN</Button>
+         <TextField id="Amount" label="Ammount" type="number" variant="outlined" onChange={amountChangeHandler}/>
+         <Button variant="contained" onClick={()=>{
+           AddAmountToBalance(enteredAmount)}}>LOAN</Button>
       </Stack>
+           </div>
       
+          }
       </>
     )
 }
