@@ -38,7 +38,8 @@ const Loan = ()=>{
 
   async function AddAmountToBalance(amount , accountId){
       const account = accounts.find(account=>account.id === accountId)
-      const newBalance = account.balance + amount;
+      const newBalance = parseInt(account.balance,10) + parseInt(amount,10);
+      console.log(amount)
       console.log(newBalance)
       await axios.put('http://localhost:3000/accounts.json',{ newBalance })
     }
