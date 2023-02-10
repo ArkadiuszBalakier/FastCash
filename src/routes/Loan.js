@@ -41,7 +41,7 @@ const Loan = ()=>{
       const newBalance = parseInt(account.balance,10) + parseInt(amount,10);
       console.log(amount)
       console.log(newBalance)
-      await axios.put('http://localhost:3000/accounts.json',{ newBalance })
+      await axios.put('http://localhost:3000/accounts.json',{ newBalance }).then(response => this.setState({ updatedAt: response.data.balance }))
     }
 
     function amountChangeHandler(event){
