@@ -12,9 +12,9 @@ return(
         <h1>BANK APP</h1>
         <DateTime/>
     </div>
-    <div >
-        <Link type="button" className={classes.b}>Withdraw</Link>
-        <Link type="button" className={classes.b}>Deposit</Link>
+    <div className="space-x-1">
+        <Button to="withdraw" component={Link} variant="outlined">Withdraw</Button>
+        <Button to="deposit" component={Link} variant="outlined">Deposit</Button>
         <Button to="transactions" component={Link} variant="outlined">Transactions</Button>
     </div>
 </header>
