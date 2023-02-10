@@ -12,7 +12,7 @@ return(
         <h1>BANK APP</h1>
         <DateTime/>
     </div>
-    <div className="space-x-1">
+    <div className="space-x-5 mt-5">
         <Button to="withdraw" component={Link} variant="outlined">Withdraw</Button>
         <Button to="deposit" component={Link} variant="outlined">Deposit</Button>
         <Button to="transactions" component={Link} variant="outlined">Transactions</Button>

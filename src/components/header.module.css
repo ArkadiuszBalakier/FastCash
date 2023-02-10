@@ -4,16 +4,7 @@
     flex-direction: column;
     text-align: center;
     justify-content:center;
-    background-color: rgb(186, 168, 242);
+    background-color: rgb(88, 189, 247);
     margin-bottom: 20px;
 
-}
-
-.b {
-    margin: 0 1rem;
-    padding: 1%;
-    color: black;
-    background-color: rgb(96, 81, 192);
-    text-decoration: none;
-    border-radius: 25%;
 }

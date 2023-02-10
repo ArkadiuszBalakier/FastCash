@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+
 import axios from 'axios'
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -45,7 +47,7 @@ function getBalance(accountId){
 }
 
     return(
-        <>
+      <>
         <FormControl className='min-w-[150px] mb-4' >
         <InputLabel id="account">Account</InputLabel>
         <Select
@@ -61,10 +63,10 @@ function getBalance(accountId){
         </FormControl>   
 
         <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Type</TableCell>
+            <TableCell align='left'>Type</TableCell>
             <TableCell align="right">Value</TableCell>
             <TableCell align="right">Date</TableCell>
           </TableRow>
@@ -72,8 +74,8 @@ function getBalance(accountId){
         {selectedAccount && <TableBody>
           {getTransactionsByAccountId(selectedAccount).map((transaction) => (
             <TableRow
-              key={transaction.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            key={transaction.id}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 {transaction.type}
@@ -83,7 +85,8 @@ function getBalance(accountId){
               <TableCell align="center"></TableCell>
             </TableRow>
           ))}
-          <TableRow>
+          <TableRow 
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell rowSpan={2}></TableCell>
             <TableCell rowSpan={3} align="right">Balance :</TableCell>
             <TableCell align='right'>{getBalance(selectedAccount)}</TableCell>
@@ -91,8 +94,8 @@ function getBalance(accountId){
         </TableBody>}
       </Table>
     </TableContainer>
-        </>
+              </>
     )
-}
-
-export default Transactions;
+  }
+  
+  export default Transactions;
