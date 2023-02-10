@@ -13,8 +13,9 @@ return(
         <DateTime/>
     </div>
     <div className="space-x-5 mt-5">
+        <Button to="transfer" component={Link} variant="outlined">Transfer</Button>
         <Button to="withdraw" component={Link} variant="outlined">Withdraw</Button>
-        <Button to="deposit" component={Link} variant="outlined">Deposit</Button>
+        <Button to="loan" component={Link} variant="outlined">Loan</Button>
         <Button to="transactions" component={Link} variant="outlined">Transactions</Button>
     </div>
 </header>

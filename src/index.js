@@ -7,9 +7,9 @@ import './index.css';
 
 import RootLayout from './routes/RootLayout';
 import Transactions from './routes/Transactions';
-import Deposit from './routes/Deposit'
+import Loan from './routes/Loan'
 import Withdraw from './routes/Withdraw';
-
+import Transfer from './routes/Transfer'
 
 
 const router = createBrowserRouter([
@@ -19,12 +19,16 @@ const router = createBrowserRouter([
       element: <Transactions/>
     },
     {
-      path: 'deposit',
-      element: <Deposit/>
+      path: 'loan',
+      element: <Loan/>
     },
     {
       path: 'withdraw',
       element: <Withdraw/>
+    },
+    {
+      path: 'transfer',
+      element: <Transfer/>
     }
   ]}
   

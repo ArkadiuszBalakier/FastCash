@@ -26,7 +26,7 @@
         "accountNumber": "1234567",
         "firstName": "Martna",
         "lastName": "Bee",
-        "balance": 10000,
+        "balance": 8000,
         "transactions":[
             {
                 "id":"1",

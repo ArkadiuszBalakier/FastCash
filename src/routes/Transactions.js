@@ -48,7 +48,7 @@ function getBalance(accountId){
 
     return(
       <>
-        <FormControl className='min-w-[150px] mb-4' >
+        <FormControl className='min-w-[150px] mb-5' >
         <InputLabel id="account">Account</InputLabel>
         <Select
           defaultValue=""
@@ -58,7 +58,9 @@ function getBalance(accountId){
           label="account"
           onChange={handleChange}
           >
-          {accounts.map(account=> <MenuItem key={account.id} value={account.id}>{`${account.accountNumber}: ${account.firstName} ${account.lastName}`}</MenuItem>)}
+          {accounts.map(account=>
+             <MenuItem key={account.id} value={account.id}>{`${account.accountNumber}:
+              ${account.firstName} ${account.lastName}`}</MenuItem>)}
         </Select>
         </FormControl>   
 
