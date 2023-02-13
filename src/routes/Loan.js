@@ -10,16 +10,18 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+import Balance from '../components/Balance';
+
 const Loan = ()=>{
     const [accounts,setAccounts]=useState([]);
     const [selectedAccount, setSelectedAccount]=useState('');
     const [enteredAmount, setEnteredAmount]=useState('');
+    const [balance, setBalance]=useState('');
 
     async function getAccounts(){
         const response= await axios.get('http://localhost:3000/accounts.json')
         const data=response.data;
          setAccounts(data)
-         console.log(accounts)
     }
 
     function handleChange(event){
@@ -36,12 +38,10 @@ const Loan = ()=>{
       return account.balance
     }
 
-  async function AddAmountToBalance(amount , accountId){
+   function AddAmountToBalance(amount , accountId){
       const account = accounts.find(account=>account.id === accountId)
       const newBalance = parseInt(account.balance,10) + parseInt(amount,10);
-      console.log(amount)
-      console.log(newBalance)
-      await axios.put('http://localhost:3000/accounts.json',{ newBalance }).then(response => this.setState({ updatedAt: response.data.balance }))
+      setBalance(newBalance)
     }
 
     function amountChangeHandler(event){
@@ -68,7 +68,7 @@ const Loan = ()=>{
 {selectedAccount && <div>
       <Stack spacing={2} direction="row" className='mb-5'>
         <div>Current Balance:</div>
-        { selectedAccount && <div>{getBalance(selectedAccount)}</div>}
+        { selectedAccount && <div>{balance}</div>}
       </Stack>
 
       <Stack spacing={4} direction="row">
@@ -79,6 +79,7 @@ const Loan = ()=>{
            </div>
       
           }
+          <Balance balance={balance}/>
       </>
     )
 }
