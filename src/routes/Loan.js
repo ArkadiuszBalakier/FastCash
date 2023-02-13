@@ -33,10 +33,10 @@ const Loan = ()=>{
          getAccounts();        
     },[])
 
-    function getBalance(accountId){
-      const account = accounts.find(account=> account.id === accountId)
-      return account.balance
-    }
+    // function getBalance(accountId){
+    //   const account = accounts.find(account=> account.id === accountId)
+    //   return account.balance
+    // }
 
    function AddAmountToBalance(amount , accountId){
       const account = accounts.find(account=>account.id === accountId)
